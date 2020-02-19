@@ -1,0 +1,45 @@
+<div class="header">
+  <h1 class="display-4"><img src="./assets/images/nit_logo.jpg" id="heading_image">{{title}}</h1>
+</div>
+<br>
+<div class="container" *ngIf="token === null; then thenBlock">  
+</div>
+  <ng-template #thenBlock>
+    <div class="row">
+      <div class="col-md-2">
+  
+      </div>
+      <div class="col-md-4">
+        <button routerLink="/login" routerLinkActive="active" class="btn btn-outline-primary btn-block">Login</button>
+      </div>
+      <div class="col-md-4">
+        <button routerLink="/signup" routerLinkActive="active" class="btn btn-outline-primary btn-block">signup</button>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- <ng-template #elseBlock>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+  </script>    
+  
+  <div class="topnav" id="myTopnav">
+      <a class="active">Home</a>
+      <a routerLink="/loginView">Profile</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a (click)="logout()">Logout</a>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+    
+  </ng-template> -->
+
+  
+<router-outlet></router-outlet>

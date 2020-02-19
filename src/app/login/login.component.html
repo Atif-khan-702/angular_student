@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <h3 style="text-align:center" *ngIf="infoMessage !== '' ">{{ infoMessage }}</h3>
+    <div class="form">
+        <div class="card2_heading">
+            <h4 id="form_heading">Login Form</h4>
+        </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-4">
+                <label>User Name:</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md">
+                   <input type="text" class="form-control" formControlName="user_name" name="user_name" placeholder="Enter Your Email">
+                   <div *ngIf="user_name.invalid && user_name.touched">
+                    <small class="text-danger" *ngIf="user_name.errors?.required">User Name is required</small>
+                    <small class="text-danger"  *ngIf="user_name.errors?.minlength">User Name must be atleast 3 character</small>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <label>Password:</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md">
+                    <input type="password" placeholder="Enter Password" class="form-control" formControlName="password" name="password">
+                    <div *ngIf="password.invalid && password.touched">
+                        <small class="text-danger" *ngIf="password.errors?.required">password is required</small>
+                        <small class="text-danger"  *ngIf="password.errors?.minlength">password must be atleast 3 character</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-outline-primary btn-block" type="submit">Login</button>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Not Register Yet ?</label>
+                </div>
+                <div class="col-md-4">
+                    <a routerLink="/signup"><button class="btn btn-outline-primary btn-block" type="submit">Register</button></a>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+        </div>
+        
+    </form>
+    </div>
+</div>

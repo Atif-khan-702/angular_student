@@ -1,0 +1,145 @@
+<div class="container-fluid">
+    <h4 style="text-align:center;color: red;" *ngIf="infoMessage !== ''">{{ infoMessage }}</h4>
+    <div class="form">
+        <div class="card2_heading">
+            <h4 id="form_heading">Student Registration Form</h4>
+        </div>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-4">
+                <label>Name:</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <input [class.is-invalid]="fname.invalid && fname.touched" formControlName="fname" type="text" class="form-control" name="fname" placeholder="Enter First Name">
+                    <div *ngIf="fname.invalid && fname.touched">
+                        <small class="text-danger" *ngIf="fname.errors?.required">First Name is required</small>
+                        <small class="text-danger"  *ngIf="fname.errors?.minlength">First Name must be atleast 3 character</small>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input [class.is-invalid]="lname.invalid && lname.touched" formControlName="lname" type="text" class="form-control" name="lname" placeholder="Enter Last Name">
+                    <div *ngIf="lname.invalid && lname.touched">
+                        <small class="text-danger" *ngIf="lname.errors?.required">Last Name is required</small>
+                        <small class="text-danger"  *ngIf="lname.errors?.minlength">Last Name must be atleast 3 character</small>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Email:</label>
+            </div>
+            <div class="col-md-6">
+                <label>Phone:</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                   <input type="text" class="form-control" [class.is-invalid]="email.invalid && email.touched" formControlName="email" name="email" placeholder="Enter Your Email">
+                   <div *ngIf="email.invalid && email.touched">
+                    <small class="text-danger" *ngIf="email.errors?.required">Email is required</small>
+                </div>
+                <div *ngIf="email.errors?.email">
+                    <small class="text-danger">Email not valid.</small>
+               </div>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Enter Your Phone" [class.is-invalid]="phone.invalid && phone.touched" name="phone" formControlName="phone">
+                    <div *ngIf="phone.invalid && phone.touched">
+                        <small class="text-danger" *ngIf="phone.errors?.required">Phone is required</small>
+                        <small class="text-danger"  *ngIf="phone.errors?.minlength">phone must be of 10 character</small>
+                        <small class="text-danger"  *ngIf="phone.errors?.maxlength">phone must be of 10 character</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <label>User Name:</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md">
+                    <input type="text" placeholder="Enter UserName" class="form-control" [class.is-invalid]="user_name.invalid && user_name.touched" name="user_name" formControlName="user_name">
+                    <div *ngIf="user_name.invalid && user_name.touched">
+                        <small class="text-danger" *ngIf="user_name.errors?.required">userName is required</small>
+                        <small class="text-danger"  *ngIf="user_name.errors?.minlength">UserName must be atleast 3 character</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md">
+                <label>Password:</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md">
+                    <input type="teext" placeholder="Enter Password" class="form-control" [class.is-invalid]="password.invalid && password.touched" name="password" formControlName="password">
+                    <div *ngIf="password.invalid && password.touched">
+                        <small class="text-danger" *ngIf="password.errors?.required">password is required</small>
+                        <small class="text-danger"  *ngIf="password.errors?.minlength">password must be atleast 3 character</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md">
+                <label>Confirm Password:</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md">
+                    <input type="password" [class.is-invalid]="signupForm.errors?.mismatch || cnf_pass.invalid && cnf_pass.touched" placeholder="Enter confirm Password" name="cnf_pass" class="form-control" formControlName="cnf_pass">
+                    <small class="text-danger"  *ngIf="signupForm.errors?.mismatch">password do not match</small>
+                    <div *ngIf="cnf_pass.invalid && cnf_pass.touched">
+                        <small class="text-danger" *ngIf="cnf_pass.errors?.required">Confirm password is required</small>
+                        <small class="text-danger"  *ngIf="cnf_pass.errors?.minlength">password must be atleast 3 character</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-outline-primary btn-block" type="submit">Register</button>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Already Registered ? </label>
+                </div>
+                <div class="col-md-4">
+                    <a routerLink="/login"><button class="btn btn-outline-primary btn-block" type="submit">Login</button></a>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>

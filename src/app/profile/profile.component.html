@@ -1,0 +1,118 @@
+<script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+</script>    
+
+<div class="topnav" id="myTopnav">
+    <a routerLink="/">Home</a>
+    <a class="active">profile</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a (click)="logout()" style="float: right;">Logout</a>
+    <a style="float: right;"><img src="./assets/images/avatar.png" height="30px" width="30px" style="border-radius: 14px;">{{ name }}</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+
+  <div class="container">
+      <div class="card bg-light text-dark">
+        <h4>Personal Details:</h4>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Name:</label>
+            </div>
+            <div class="col-md-4">
+                <label>{{name}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Father Name:</label>
+            </div>
+            <div class="col-md-4">
+                <label>{{father}}</label>
+            </div>
+            <div class="col-md-2">
+                <label>Mother Name:</label>
+            </div>
+            <div class="col-md-4">
+                <label>{{mother}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Gender:</label>
+            </div>
+            <div class="col-md-4">
+                <label>{{gender}}</label>
+            </div>
+            <div class="col-md-2">
+                <label>Adhar:</label>
+            </div>
+            <div class="col-md-4">
+                <label>{{adhar}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>DOB:</label>
+            </div>
+            <div class="col-md-4">
+                <label>{{dob}}</label>
+            </div>
+        </div>
+        <h4>Contacts:</h4>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Email:</label>
+            </div>
+            <div class="col-md-4">
+                <label>{{email}}</label>
+            </div>
+            <div class="col-md-2">
+                <label>Phone:</label>
+            </div>
+            <div class="col-md-4">
+                <label>{{phone}}</label>
+            </div>
+        </div>
+        <h4>Address:</h4>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Country:</label>
+            </div>
+            <div class="col-md-4">
+                <label>{{country}}</label>
+            </div>
+            <div class="col-md-2">
+                <label>State:</label>
+            </div>
+            <div class="col-md-4">
+                <label>{{state}}</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>City:</label>
+            </div>
+            <div class="col-md-4">
+                <label>{{city}}</label>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <button class="btn btn-outline-primary btn-block">Update</button>
+            </div>
+        </div>
+        <br><br>
+      </div>
+      
+  </div>
+  

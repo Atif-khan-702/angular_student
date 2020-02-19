@@ -1,0 +1,17 @@
+/* form heading style*/
+.card2_heading{
+    margin: 0px;
+    height:100px;
+    width: 100%;
+    background-color: darkslategrey;
+    border-radius: 10px;
+}
+
+/* form heading text style*/
+#form_heading{
+    color: white;
+    padding: 28px;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+}
